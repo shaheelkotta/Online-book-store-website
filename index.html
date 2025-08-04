@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Online Bookstore - Home</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo">📚 BookStore</div>
+    <nav class="top-nav">
+      <a href="index.html">Home</a>
+      <a href="login.html">Login</a>
+      <a href="registration.html">Registration</a>
+      <a href="catalogue.html">Catalogue</a>
+      <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+    </nav>
+  </header>
+
+  <div class="main-frame">
+    <aside class="sidebar">
+      <h3>Categories</h3>
+      <ul>
+        <li><button data-cat="all" class="cat-btn active">All</button></li>
+        <li><button data-cat="CSE" class="cat-btn">CSE</button></li>
+        <li><button data-cat="ECE" class="cat-btn">ECE</button></li>
+        <li><button data-cat="EEE" class="cat-btn">EEE</button></li>
+        <li><button data-cat="CIVIL" class="cat-btn">CIVIL</button></li>
+      </ul>
+    </aside>
+    <section class="content" id="home-content">
+      <h2>Welcome to the Online Book Store</h2>
+      <p>
+        This static website demonstrates an online bookstore with category-based
+        navigation, login/registration, catalogue and cart. Click the categories
+        on the left to filter books; view full catalogue or login to proceed.
+      </p>
+      <div class="feature-boxes">
+        <div class="box">
+          <h4>CSE Books</h4>
+          <p>Programming, XML, Java and more.</p>
+        </div>
+        <div class="box">
+          <h4>ECE Books</h4>
+          <p>Electronics, Signal Processing, HTML and Web Tech.</p>
+        </div>
+        <div class="box">
+          <h4>EEE / CIVIL</h4>
+          <p>Engineering textbooks and reference materials.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

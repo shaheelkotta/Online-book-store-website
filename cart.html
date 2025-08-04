@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cart - Online Bookstore</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo">📚 BookStore</div>
+    <nav class="top-nav">
+      <a href="index.html">Home</a>
+      <a href="login.html">Login</a>
+      <a href="registration.html">Registration</a>
+      <a href="catalogue.html">Catalogue</a>
+      <a href="cart.html" class="active">Cart (<span id="cart-count">0</span>)</a>
+    </nav>
+  </header>
+
+  <div class="main-frame">
+    <aside class="sidebar">
+      <h3>Categories</h3>
+      <ul>
+        <li><button data-cat="all" class="cat-btn">All</button></li>
+        <li><button data-cat="CSE" class="cat-btn">CSE</button></li>
+        <li><button data-cat="ECE" class="cat-btn">ECE</button></li>
+        <li><button data-cat="EEE" class="cat-btn">EEE</button></li>
+        <li><button data-cat="CIVIL" class="cat-btn">CIVIL</button></li>
+      </ul>
+    </aside>
+    <section class="content">
+      <h2>Your Cart</h2>
+      <div id="cart-items">
+        <!-- populated by JS -->
+      </div>
+      <div class="cart-summary" id="cart-summary">
+        <!-- total & checkout -->
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    updateCartCount();
+    renderCartPage();
+  });
+</script>

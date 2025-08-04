@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login - Online Bookstore</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo">📚 BookStore</div>
+    <nav class="top-nav">
+      <a href="index.html">Home</a>
+      <a href="login.html" class="active">Login</a>
+      <a href="registration.html">Registration</a>
+      <a href="catalogue.html">Catalogue</a>
+      <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+    </nav>
+  </header>
+
+  <div class="main-frame">
+    <aside class="sidebar">
+      <h3>Categories</h3>
+      <ul>
+        <li><button data-cat="all" class="cat-btn">All</button></li>
+        <li><button data-cat="CSE" class="cat-btn">CSE</button></li>
+        <li><button data-cat="ECE" class="cat-btn">ECE</button></li>
+        <li><button data-cat="EEE" class="cat-btn">EEE</button></li>
+        <li><button data-cat="CIVIL" class="cat-btn">CIVIL</button></li>
+      </ul>
+    </aside>
+    <section class="content">
+      <h2>Login</h2>
+      <form id="login-form" class="form-card">
+        <label>
+          Login:
+          <input type="text" name="username" required />
+        </label>
+        <label>
+          Password:
+          <input type="password" name="password" required />
+        </label>
+        <div class="form-actions">
+          <button type="reset">Reset</button>
+          <button type="submit">Submit</button>
+        </div>
+        <p class="note">* This is a static mock; no real authentication is performed.</p>
+      </form>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
