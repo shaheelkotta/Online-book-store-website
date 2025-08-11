@@ -5,8 +5,95 @@
   <title>Registration - Online Bookstore</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <link rel="stylesheet" href="style.css" />
+  <style>
+    label select {
+      margin-right: 8px;
+      padding: 4px;
+    }
+
+    body {
+  background: url('images/regis.jfif') no-repeat center center fixed;
+  background-size: cover; /* make it fill the screen */
+  font-family: Arial, sans-serif;
+}
+    .form-card {
+  max-width: 650px; /* wider form */
+  margin: 0 auto;
+  background: #fff;
+  padding: 30px; /* more padding inside */
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.form-card label {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 18px; /* larger text for labels */
+}
+
+.form-card input,
+.form-card select,
+.form-card textarea {
+  width: 100%;
+  padding: 10px; /* taller inputs */
+  font-size: 16px; /* bigger text in inputs */
+  margin-top: 5px;
+}
+
+.form-actions button {
+  padding: 12px 20px;
+  font-size: 16px;
+}
+
+    .content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+  </style>
+  <script>
+    function validateForm(event) {
+      event.preventDefault();
+
+      const form = document.forms["reg-form"];
+      const name = form["fullname"].value.trim();
+      const password = form["password"].value.trim();
+      const email = form["email"].value.trim();
+      const phone = form["phone"].value.trim();
+
+      // Name: only alphabets and length >= 6
+      if (!/^[A-Za-z\s]+$/.test(name) || name.length < 6) {
+        alert("Name must contain only alphabets and be at least 6 characters long.");
+        return false;
+      }
+
+      // Password: length >= 6
+      if (password.length < 6) {
+        alert("Password must be at least 6 characters long.");
+        return false;
+      }
+
+      // Email: standard pattern
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email)) {
+        alert("Enter a valid email address in the format name@domain.com");
+        return false;
+      }
+
+      // Phone: exactly 10 digits
+      if (!/^\d{10}$/.test(phone)) {
+        alert("Phone number must contain exactly 10 digits.");
+        return false;
+      }
+
+      alert("Registration successful!");
+      return true;
+    }
+  </script>
 </head>
-<body>
+<body ">
   <header class="site-header">
     <div class="logo">📚 BookStore</div>
     <nav class="top-nav">
@@ -30,25 +117,88 @@
       </ul>
     </aside>
     <section class="content">
-      <h2>Register</h2>
-      <form id="reg-form" class="form-card">
+      
+      <form name="reg-form" id="reg-form" class="form-card" onsubmit="return validateForm(event)">
+        <h2 align="center">Register</h2>
         <label>
-          Full Name:
+          Name:
           <input type="text" name="fullname" required />
         </label>
-        <label>
-          Email:
-          <input type="email" name="email" required />
-        </label>
+
         <label>
           Password:
           <input type="password" name="password" required />
         </label>
+
+        <label>
+          E-mail id:
+          <input type="text" name="email" required />
+        </label>
+
+        <label>
+          Phone number:
+          <input type="text" name="phone" required />
+        </label>
+
+        <label>
+          Sex:
+          <input type="radio" name="sex" value="Male" required /> Male
+          <input type="radio" name="sex" value="Female" /> Female
+        </label>
+
+       <label>
+  Date of Birth:
+  <select name="dob-day" required>
+    <option value="">Day</option>
+    <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+    <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+    <option>11</option><option>12</option><option>13</option><option>14</option><option>15</option>
+    <option>16</option><option>17</option><option>18</option><option>19</option><option>20</option>
+    <option>21</option><option>22</option><option>23</option><option>24</option><option>25</option>
+    <option>26</option><option>27</option><option>28</option><option>29</option><option>30</option>
+    <option>31</option>
+  </select>
+
+  <select name="dob-month" required>
+    <option value="">Month</option>
+    <option>Jan</option><option>Feb</option><option>Mar</option><option>Apr</option>
+    <option>May</option><option>Jun</option><option>Jul</option><option>Aug</option>
+    <option>Sep</option><option>Oct</option><option>Nov</option><option>Dec</option>
+  </select>
+
+  <select name="dob-year" required>
+    <option value="">Year</option>
+    <option>2025</option><option>2024</option><option>2023</option><option>2022</option><option>2021</option>
+    <option>2020</option><option>2019</option><option>2018</option><option>2017</option><option>2016</option>
+    <option>2015</option><option>2014</option><option>2013</option><option>2012</option><option>2011</option>
+    <option>2010</option><option>2009</option><option>2008</option><option>2007</option><option>2006</option>
+    <option>2005</option><option>2004</option><option>2003</option><option>2002</option><option>2001</option>
+    <option>2000</option><option>1999</option><option>1998</option><option>1997</option><option>1996</option>
+    <option>1995</option><option>1994</option><option>1993</option><option>1992</option><option>1991</option>
+    <option>1990</option><option>1989</option><option>1988</option><option>1987</option><option>1986</option>
+    <option>1985</option>
+  </select>
+</label>
+
+
+        <label>
+          Languages known:
+          <input type="checkbox" name="lang" value="English" /> English
+          <input type="checkbox" name="lang" value="Telugu" /> Telugu
+          <input type="checkbox" name="lang" value="Hindi" /> Hindi
+          <input type="checkbox" name="lang" value="Tamil" /> Tamil
+        </label>
+
+        <label>
+          Address:
+          <textarea name="address" rows="3" required></textarea>
+        </label>
+
         <div class="form-actions">
           <button type="reset">Reset</button>
           <button type="submit">Register</button>
         </div>
-        <p class="note">* This is mock. No account is actually created.</p>
+
       </form>
     </section>
   </div>
